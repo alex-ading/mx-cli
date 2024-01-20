@@ -1,7 +1,6 @@
 const inquirer = require('inquirer');
 const templates = require('./templates.js');
 
-// 定义当前版本
 const getProjectName = async () => {
   const { projectName } = await inquirer.prompt({
     type: 'input',

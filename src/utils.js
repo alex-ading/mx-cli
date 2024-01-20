@@ -1,4 +1,3 @@
-// const downloadGitRepo = require('download-git-repo');
 const ora = require('ora');
 const path = require('path');
 const clone = require('git-clone/promise');
@@ -15,7 +14,6 @@ const downloadTemplate = async (gitAddress, targetDir) => {
     console.log('npm start');
   } catch (e) {
     loading.fail('创建模版失败：' + e.message);
-    console.log(111);
   }
 };
 

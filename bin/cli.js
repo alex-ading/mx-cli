@@ -8,10 +8,13 @@ const { getProjectName, getTemplateAddress, getIsRemoveDir } = require('../src/a
 const { downloadTemplate } = require('../src/utils.js');
 
 
+commander.on('--help', () => {});
+commander.version(`version ${package.version}`);
+
 commander
   .command('create [projectName]')
-  .option('-t, --template <template>', '模版名称')
   .description('创建模版')
+  .option('-t, --template <template>', '模版名称')
   .action(async (projectName, options) => {
     if (!projectName) projectName = await getProjectName();
     let templateOption = templates.find(template => template.name === options.template);
@@ -32,5 +35,4 @@ commander
     downloadTemplate(templateAddress, projectName);
   });
 
-commander.version(`version ${package.version}`);
 commander.parse(process.argv);
