@@ -11,7 +11,7 @@ const getProjectName = async () => {
   return projectName;
 };
 
-const getTemplate = async () => {
+const getTemplateAddress = async () => {
   const { template } = await inquirer.prompt({
     type: 'list',
     name: 'template',
@@ -32,6 +32,6 @@ const getIsRemoveDir = async () => {
 
 module.exports = {
   getProjectName,
-  getTemplate,
+  getTemplateAddress,
   getIsRemoveDir
 };
