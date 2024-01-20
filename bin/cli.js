@@ -1,33 +1,27 @@
 #! /usr/bin/env node
-console.log('mx cli');
 
+const fs = require('fs-extra');
 const commander = require('commander');
-const inquirer = require('inquirer');
 const package = require('../package.json');
-const templates = require('../src/templates.js');
-
-
-commander.version(`version ${package.version}`);
+const { getProjectName, getTemplate, getIsRemoveDir } = require('../src/actions.js');
+const { downloadTemplate} = require('../src/download.js');
 
 commander
   .command('create')
   .description('创建模版')
   .action(async () => {
-    const { projectName } = await inquirer.prompt({
-      type: 'input',
-      name: 'projectName',
-      message: '请输入项目名称：',
-      choices: templates,
-    });
-    console.log("项目名称：", projectName);
-
-    const { template } = await inquirer.prompt({
-      type: 'list',
-      name: 'template',
-      message: '请选择项目模板：',
-      choices: templates,
-    });
-    console.log("项目模版：", template);
+    const projectName = await getProjectName();
+    const template = await getTemplate();
+    if (fs.existsSync(projectName)) {
+      const isRemoveDir = await getIsRemoveDir();
+      if (isRemoveDir) {
+        fs.removeSync(projectName);
+      } else {
+        process.exit(1);
+      }
+    }
+    downloadTemplate(template, projectName);
   });
 
+commander.version(`version ${package.version}`);
 commander.parse(process.argv);
