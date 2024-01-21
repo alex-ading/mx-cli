@@ -2,7 +2,7 @@ const fs = require('fs-extra');
 const commander = require('commander');
 const package = require('../package.json');
 const templates = require('./templates.js');
-const { getProjectName, getTemplateAddress, getIsRemoveDir } = require('./actions.js');
+const { getProjectName, getTemplateAddress, getIsRemoveDir, showAllTemplates } = require('./actions.js');
 const { downloadTemplate } = require('./utils.js');
 
 
@@ -33,4 +33,11 @@ commander
     downloadTemplate(templateAddress, projectName);
   });
 
+commander
+  .command('list')
+  .description('查看所有模板')
+  .alias('ls')
+  .action(() => {
+    showAllTemplates();
+  });
 commander.parse(process.argv);
