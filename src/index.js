@@ -1,11 +1,9 @@
-#! /usr/bin/env node
-
 const fs = require('fs-extra');
 const commander = require('commander');
 const package = require('../package.json');
-const templates = require('../src/templates.js');
-const { getProjectName, getTemplateAddress, getIsRemoveDir } = require('../src/actions.js');
-const { downloadTemplate } = require('../src/utils.js');
+const templates = require('./templates.js');
+const { getProjectName, getTemplateAddress, getIsRemoveDir } = require('./actions.js');
+const { downloadTemplate } = require('./utils.js');
 
 
 commander.on('--help', () => {});

@@ -29,8 +29,16 @@ const getIsRemoveDir = async () => {
   return isRemoveDir;
 };
 
+const showAllTemplates = () => {
+  templates.forEach((item, index) => {
+    console.log(`模板${index + 1}：${item.name}`);
+  });
+  process.exit();
+};
+
 module.exports = {
   getProjectName,
   getTemplateAddress,
-  getIsRemoveDir
+  getIsRemoveDir,
+  showAllTemplates
 };
