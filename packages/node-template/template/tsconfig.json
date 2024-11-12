@@ -1,0 +1,33 @@
+{
+  "compilerOptions": {
+    "allowJs": true,
+    "allowSyntheticDefaultImports": true,
+    "baseUrl": ".",
+    "downlevelIteration": true,
+    "esModuleInterop": true,
+    "experimentalDecorators": true,
+    "forceConsistentCasingInFileNames": true,
+    "jsx": "react",
+    "lib": [
+      "DOM",
+      "DOM.Iterable",
+      "ES2015",
+    ],
+    "module": "ES6",
+    "moduleResolution": "node",
+    "removeComments": true,
+    "paths": {
+      "@/*": [
+        "src/*"
+      ]
+    },
+    "sourceMap": true,
+    "strict": true,
+    "target": "ES5",
+  },
+  "exclude": [
+    "dist",
+    "node_modules",
+    "rollup.config.js"
+  ]
+}

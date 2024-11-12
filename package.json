@@ -2,6 +2,7 @@
   "name": "mx-cli",
   "version": "1.0.0",
   "description": "",
+  "private": "true",
   "bin": {
     "mx-cli": "./bin/index.js"
   },
