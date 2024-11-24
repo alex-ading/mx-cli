@@ -33,14 +33,23 @@ export const getProjectName = async () => {
   return projectName
 }
 
-export const getIsRemoveDir = async () => {
-  const { isRemoveDir } = await inquirer.prompt({
+export const getRemoveDir = async () => {
+  const { removeDir } = await inquirer.prompt({
     type: 'confirm',
-    name: 'isRemoveDir',
-    message: '改文件夹已存在，是否覆盖？'
+    name: 'removeDir',
+    message: '文件夹已存在，是否覆盖？'
   });
-  return isRemoveDir;
+  return removeDir;
 };
+
+export const getUsePlugin = async (plugin: string) => {
+  const res = await inquirer.prompt({
+    type: 'confirm',
+    name: plugin,
+    message: '是否启用' + plugin + '?'
+  });
+  return res[plugin];
+}
 
 
 
