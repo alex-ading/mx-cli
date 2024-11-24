@@ -1,4 +1,4 @@
-import PackageInstall from './packageInstall.js';
+import PackageInstall from '../src/packageInstall.js';
 import path from 'path';
 
 async function main() {

@@ -1,5 +1,5 @@
-import PackageInstall from "./packageInstall.js";
-import * as packageInfoUtils from './packageInfoUtils.js';
+import PackageInstall from "./src/packageInstall.js";
+import * as packageInfoUtils from './src/packageInfoUtils.js';
 
 export {
   PackageInstall,
